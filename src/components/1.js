@@ -117,7 +117,7 @@ export class FirstStep extends React.Component {
         `),
         icon: 'info'
       })
-      
+
     }
   }
   onDecimalsChange(e) {
@@ -154,7 +154,7 @@ export class FirstStep extends React.Component {
               enumerable: true,
             });
             addresses.push(el)
-          } 
+          }
         })
         .on('end', () => {
           try {
@@ -191,7 +191,7 @@ export class FirstStep extends React.Component {
         swal("Error!", "Please select format CSV or JSON", 'error')
         return
       }
-      
+
       if(!this.parseCompleted){
         if(this.state.format === 'json') {
           this.onJsonChange(this.list)
@@ -237,12 +237,12 @@ export class FirstStep extends React.Component {
     }
     return (
       <div className="container container_bg">
-          
+
         <div className="content">
           <div className='sweet-loading'>
           <PulseLoader
-            color={'#123abc'} 
-            loading={this.web3Store.loading} 
+            color={'#123abc'}
+            loading={this.web3Store.loading}
             />
           </div>
           <h1 className="title"><strong>Welcome to Token</strong> MultiSender</h1>
@@ -256,7 +256,6 @@ export class FirstStep extends React.Component {
               <div className="form-inline-i form-inline-i_token-address">
                 <label htmlFor="token-address" className="label">Token Address</label>
                 <Select.Creatable
-              
               isLoading={this.web3Store.loading}
               name="form-field-name"
               id="token-address"
@@ -266,11 +265,12 @@ export class FirstStep extends React.Component {
               placeholder="Please select a token or input the address"
               options={this.web3Store.userTokens.slice()}
             />
-                
+
               </div>
               <div className="form-inline-i form-inline-i_token-decimals">
                 <label htmlFor="token-decimals" className="label">Decimals</label>
-                <Input disabled={this.web3Store.loading} type="number" validations={[required]} onChange={this.onDecimalsChange} value={this.tokenStore.decimals} className="input" id="token-decimals"/>
+                <Input disabled={this.web3Store.loading} type="number" validations={[required]}
+                       onChange={this.onDecimalsChange} value={this.tokenStore.decimals} className="input" id="token-decimals"/>
               </div>
             </div>
             <label htmlFor="addresses-with-balances" className="label">Addresses with Balances in
@@ -278,11 +278,11 @@ export class FirstStep extends React.Component {
               <Radio value="json" />JSON
               <Radio value="csv" />CSV
             </RadioGroup>
-            
+
             </label>
-            <Textarea 
+            <Textarea
               disabled={this.web3Store.loading}
-              data-gram 
+              data-gram
               validations={[required]}
               placeholder={`Example: ${this.state.placeholder}`}
               onBlur={this.onParse} id="addresses-with-balances" className="textarea"></Textarea>
